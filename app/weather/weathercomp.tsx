@@ -11,11 +11,33 @@ import {MagnifyingGlass} from 'react-loader-spinner'
 const rubik= Rubik({subsets: ['cyrillic']});
 const vt= VT323({subsets: ['latin'], weight: '400'})
 
+// api data
+interface WeatherData {
+  location: {
+    name: string
+    region: string
+    country: string
+    localtime: string
+  };
+  current: {
+    is_day: boolean
+    temp_c: number
+    condition: {
+      code: number
+      text: string
+      icon: string
+    };
+    cloud: number
+    humidity: number
+    wind_kph: number
+    feelslike_c: number
+  };
+}
 
  export default function WeatherComp() {  
 
   const [city, setCity]= useState('London')
-  const [weather, setWeather]= useState({})
+  const [weather, setWeather]= useState<WeatherData | null>(null)
   const [loading, setLoading]= useState(false)
   
   // fetching api data whenevery theres new input
@@ -43,9 +65,9 @@ const vt= VT323({subsets: ['latin'], weight: '400'})
     .then((data)=> setWeather(data))     
   }, [city])
 
-  const handleClick=(clickedcity, e)=>{
+  const handleClick=(city: string, e:React.MouseEvent)=>{
     e.preventDefault();
-    setCity(clickedcity)
+    setCity(city)
     
   }
 
@@ -56,7 +78,7 @@ const vt= VT323({subsets: ['latin'], weight: '400'})
   }
 
   // if theres no input location
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if(!city){
       alert("please enter a location")
