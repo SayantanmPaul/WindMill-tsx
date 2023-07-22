@@ -143,10 +143,10 @@ interface WeatherData {
         <div className="container absolute top-0 left-0 w-full h-full flex lg:justify-between md:justify-between items-start flex-col z-0 p-4 lg:pt-8 lg:px-12 lg:pb-16 md:px-10 md:pb-48  pt-6 py-16 ">
           <div className="flex flex-row mb-10">
             <h3 className=" font-semibold text-green-500 lg:text-xl">wind-</h3>
-            <h3 className="font-semibold lg:text-xl">mill</h3>
+            <h3 className="font-semibold lg:text-xl text-white">mill</h3>
           </div>
           
-          <div className="flex flex-col lg:flex-row md:flex-row items-center ">
+          <div className="flex flex-col lg:flex-row md:flex-row items-center text-white ">
             <div className='flex flex-row items-center justify-start'>
               <h1 className="temp m-0 lg:text-9xl md:text-7xl text-5xl">{weather.current.temp_c}°</h1>
               <div className="city-time m-0 mx-4 ">
@@ -157,12 +157,12 @@ interface WeatherData {
                   <h1 className=" m-0 mb-1 lg:text-6xl text-4xl "></h1>
                 )}
                 
-                <small className=" w-full ">
+                <small className=" w-full text-white ">
                   <span className=" text-sm pr-1">{weather.location.region},</span>
                   <span className=" text-sm">{weather.location.country}</span>
                 </small>
               </div>
-              <div className="weather flex flex-col items-center lg:gap-1 gap-0">
+              <div className="weather flex flex-col items-center lg:gap-1 gap-0 text-white">
                 <Image 
                   src={`https:${weather.current.condition.icon}`} 
                   width={80} 
@@ -265,16 +265,16 @@ interface WeatherData {
           {/* credit section */}
           <div className=' flex flex-row gap-2 lg:pt-28 pt-10 p-1 justify-center'>
             <div style={{...vt.style}} className=' flex gap-2 lg:text-sm text-xs '>
-              <a className=''>hand crafted by</a>
+              <a className='text-white'>hand crafted by</a>
               <a className=' text-green-500 hover:text-green-600 hover:underline' href="https://github.com/SayantanmPaul">Sayantan,</a>
             </div>
             <div style={{...vt.style}} className=' flex gap-2 lg:text-sm text-xs'>
-              <a className=''>design credit</a>
+              <a className='text-white'>design credit</a>
               <a className=' text-green-500 hover:text-green-600 hover:underline' href="https://dribbble.com/shots/7118235-Weather-DailyUI-037">DailyUI </a>
             </div>
           </div>
           <div style={{...vt.style}} className=' lg:hidden flex justify-center gap-2 text-xs'>
-            <a className=''>Powered by</a>
+            <a className='text-white'>Powered by</a>
             <a className=' text-green-500 hover:text-green-600 hover:underline' href="https://www.weatherapi.com/" title="Free Weather API">WeatherAPI.com</a>
           </div>
         </div>  
